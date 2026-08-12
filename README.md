@@ -22,25 +22,6 @@ I'm passionate about building scalable and performant applications that solve re
 <!-- Add/remove badges above. Full list of logos: https://simpleicons.org -->
 <!-- Badge generator: https://shields.io/badges/static-badge -->
 
----
-
-## 📝 My most recent articles
-
-- [Article Title One](https://example.com)
-- [Article Title Two](https://example.com)
-- [Article Title Three](https://example.com)
-
-
----
-
-## 📊 My GitHub contributions summary
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=dark)
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=dark)
-
----
-
 ### 📫 Reach me
 
 📍 ✉️ YOUR_EMAIL &nbsp;•&nbsp; 🔗 YOUR_WEBSITE
