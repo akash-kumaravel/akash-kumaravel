@@ -1,4 +1,4 @@
-<h1 align="center">👋 Hi there, I'm YOUR_NAME!</h1>
+<h1 align="center">👋 Hi there, I'm Akash!</h1>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&color=blueviolet&label=Profile+views" alt="Profile views" />
@@ -30,11 +30,6 @@ I'm passionate about building scalable and performant applications that solve re
 - [Article Title Two](https://example.com)
 - [Article Title Three](https://example.com)
 
----
-
-## ☕ If you think I deserve a pick-me-up
-
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/YOUR_USERNAME)
 
 ---
 
@@ -48,4 +43,4 @@ I'm passionate about building scalable and performant applications that solve re
 
 ### 📫 Reach me
 
-📍 YOUR_LOCATION &nbsp;•&nbsp; ✉️ YOUR_EMAIL &nbsp;•&nbsp; 🔗 YOUR_WEBSITE
+📍 ✉️ YOUR_EMAIL &nbsp;•&nbsp; 🔗 YOUR_WEBSITE
