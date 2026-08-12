@@ -24,4 +24,4 @@ I'm passionate about building scalable and performant applications that solve re
 
 ### 📫 Reach me
 
-📍 ✉️ YOUR_EMAIL akashuxui@gmail.com; 🔗 [YOUR_WEBSITE](https://akashkumaravel.framer.website/)
+📍 ✉️ akashuxui@gmail.com; 🔗 [YOUR_WEBSITE](https://akashkumaravel.framer.website/)
