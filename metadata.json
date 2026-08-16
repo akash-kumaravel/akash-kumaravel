@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Akash Kumaravel Portfolio",
+  "description": "A creative hub showcasing Graphic and UI/UX design work by Akash Kumaravel, featuring products, apps, figma plugins, and graphic designs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
