@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akashuxui.vercel.app/sitemap.xml
