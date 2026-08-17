@@ -516,14 +516,6 @@ export default function CollectiblesPage({
 
       {/* Ending */}
       <section className="w-full max-w-[1140px] mx-auto px-6 md:px-12 py-16 flex flex-col items-center text-center gap-8 border-t border-gray-100">
-        <div className="w-[118px] md:w-[180px] h-[131px] md:h-[200px]">
-          <img
-            src="https://framerusercontent.com/images/frAf6d9VLtSsqXTmGs9ig1WifN0.png"
-            alt="End Mascot"
-            className="w-full h-full object-contain"
-          />
-        </div>
-
         <h2 className="font-sans font-bold text-[32px] md:text-[48px] text-gray-900">
           Thanks for watching
         </h2>
