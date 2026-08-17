@@ -92,12 +92,11 @@ export default function CollectiblesPage({
 
               <div className="w-[150px] sm:w-[220px] md:w-[258px] h-[115px] sm:h-[170px] md:h-[199px] bg-white rounded-[24px] sm:rounded-[32px] md:rounded-[50px] overflow-hidden shadow-lg relative flex items-center justify-center border-2 border-white/20">
                 <video
-                  src="https://framerusercontent.com/assets/HHmWussdLehcs2xIHPogn7eHQeI.mp4"
+                  src="/assets/spart hero.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  poster="https://framerusercontent.com/images/rHeBS4VOstndgaBEVHbCDEGHhsU.png"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -189,14 +188,6 @@ export default function CollectiblesPage({
         <p className="font-sans font-medium text-[18px] md:text-[20px] text-[#636B82] max-w-[900px] leading-[1.6]">
           Social media consumption and digital audio streaming have surged globally, with users spending hours every day exploring viral trends and discovering new music. However, traditional apps separate social feeds, music streaming, and instant messaging into isolated silos. Spark bridges these worlds by merging trending content feeds, intelligent music discovery, and real-time social chat into a single seamless ecosystem.
         </p>
-
-        <div className="w-full max-w-[924px] h-auto rounded-3xl overflow-hidden border border-gray-200 shadow-sm my-4">
-          <img
-            src="https://framerusercontent.com/images/wRDWvsCGYo7Yk8oQ8CJw9hYU.png?scale-down-to=2048"
-            alt="Spark User Engagement Growth Chart"
-            className="w-full h-auto object-cover"
-          />
-        </div>
 
         <div className="flex flex-col gap-4 mt-4">
           <h2 className="font-sans font-bold text-[32px] md:text-[40px] text-[#333333]">

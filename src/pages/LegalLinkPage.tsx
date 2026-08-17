@@ -29,6 +29,7 @@ import ScrollRevealCard from '../components/ScrollRevealCard';
 import TargetUserCards from '../components/TargetUserCards';
 import DesignProcessTimeline from '../components/DesignProcessTimeline';
 import { ModalType } from '../types';
+import { assetPath } from '../data/portfolioData';
 
 interface LegalLinkPageProps {
   onBack?: () => void;
@@ -133,7 +134,7 @@ export default function LegalLinkPage({
                 className="relative z-10 w-[180px] sm:w-[240px] md:w-[280px] h-[135px] sm:h-[180px] md:h-[210px] bg-white rounded-[28px] sm:rounded-[38px] overflow-hidden border-2 border-white/20 shadow-2xl flex items-center justify-center"
               >
                 <video
-                  src="https://framerusercontent.com/assets/XoP491uzhVbv9nd69YewU7v8Mo.mp4"
+                  src={assetPath("legal link hero.mp4")}
                   autoPlay
                   loop
                   muted
@@ -201,40 +202,6 @@ export default function LegalLinkPage({
         </div>
       </motion.section>
 
-      {/* Phone Showcase */}
-      <motion.section
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="w-full flex justify-center py-10 md:py-16 px-2 sm:px-4 overflow-hidden"
-      >
-        <div className="relative w-[280px] sm:w-[389px] md:w-[465px] h-[476px] sm:h-[662px] md:h-[791px] flex items-center justify-center">
-          <img
-            src="https://framerusercontent.com/images/69jR1cWmAqXbClt1qtGd6JAo4.png"
-            alt="Mobile Device Frame"
-            className="absolute inset-0 w-full h-full object-contain sm:object-cover z-10 pointer-events-none"
-          />
-
-          <div className="w-[162px] sm:w-[225px] md:w-[269px] h-[358px] sm:h-[498px] md:h-[595px] rounded-[20px] sm:rounded-[28px] md:rounded-[34px] overflow-hidden z-0">
-            <video
-              src="https://framerusercontent.com/assets/CmXK0wyVwGLaHCZL3A7JEbkI.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <img
-            src="https://framerusercontent.com/images/5cbGyYUYq95MU4KfeUhyY2mfRZE.png"
-            alt="Notch"
-            className="absolute top-5 sm:top-7 md:top-8 w-[51px] sm:w-[71px] md:w-[92px] h-[12px] sm:h-[17px] md:h-[22px] z-20"
-          />
-        </div>
-      </motion.section>
-
       {/* Case Study Content */}
       <section className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 md:px-12 py-8 flex flex-col gap-12 sm:gap-16">
         <motion.div
@@ -286,13 +253,6 @@ export default function LegalLinkPage({
             </div>
           </div>
 
-          <div className="w-full md:w-[389px] max-h-[470px] bg-gray-50 border border-gray-200/80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs flex-shrink-0">
-            <img
-              src="https://framerusercontent.com/images/JTbdx5iXMPUA1Kx7VwdviiX8bQ.png"
-              alt="JTBD Strategy"
-              className="w-full h-auto object-contain"
-            />
-          </div>
         </motion.div>
 
         {/* Target Users */}

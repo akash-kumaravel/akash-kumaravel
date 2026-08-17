@@ -154,10 +154,14 @@ export default function FlintPage({
               </div>
 
               <div className="w-[150px] sm:w-[220px] md:w-[258px] h-[115px] sm:h-[170px] md:h-[199px] bg-[#5C019E] rounded-[24px] sm:rounded-[32px] md:rounded-[50px] overflow-hidden shadow-lg relative flex items-center justify-center border-2 border-white/20 z-20">
-                <svg className="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-md" viewBox="0 0 119 74" fill="currentColor">
-                  <path d="M73.333 53.5V64.5C73.333 69.56 69.2263 73.6666 64.1663 73.6666H37.9863C34.723 73.6666 33.1097 69.7433 35.383 67.4333L56.9063 45.4333C57.603 44.7366 58.5563 44.3333 59.5097 44.3333H64.1663C69.2263 44.3333 73.333 48.44 73.333 53.5Z"/>
-                  <path d="M60.0226 34.3969L50.0859 44.3335L41.0659 53.3169C38.7559 55.6269 34.7959 54.0135 34.7959 50.7502C34.7959 38.9802 34.7959 19.6202 34.7959 19.6202C34.7959 18.6302 35.1992 17.7135 35.8592 17.0169L39.2325 13.6435C42.8259 10.0502 48.6192 10.0502 52.2126 13.6435L59.9859 21.4169C63.6159 25.0102 63.6159 30.8035 60.0226 34.3969Z"/>
-                </svg>
+                <video
+                  src={assetPath("flint hero.mp4")}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <p className="max-w-[632px] font-sans font-bold text-[15px] sm:text-[18px] md:text-[21px] leading-[1.6] sm:leading-[1.77] text-white/90 z-20">

@@ -218,20 +218,12 @@ function HeroSection() {
 
 const products = [
   {
-    image: assetPath("cloud bestie.png"),
-    category: "CloudBestie",
-    title: "CloudBestie - Cloud Locker",
-    alt: "CloudBestie",
-    slug: "cloud-bestie",
-    externalUrl: "https://www.facebook.com",
-  },
-  {
     image: assetPath("background remover.png"),
     category: "Background Remover",
     title: "BGWrap-Background Remover",
     alt: "OceanCache",
     slug: "bg-wrap",
-    externalUrl: "https://www.facebook.com",
+    externalUrl: "https://bgwrap.vercel.app/",
   },
   {
     image: assetPath("dpicon.png"),

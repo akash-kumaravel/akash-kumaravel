@@ -134,7 +134,9 @@ const projectsData: Record<string, any> = {
     result: "Achieved 99.9% accuracy on standard subjects and significantly reduced processing time to under 1 second per image.",
     conclusion: "BGWrap has become a go-to tool for thousands of creatives, proving the value of purpose-built AI in the design workflow.",
     tags: ["AI", "Image Processing", "Productivity"],
-    type: "plugin"
+    type: "plugin",
+    liveUrl: "https://bgwrap.vercel.app/",
+    liveButtonText: "Try BGWrap"
   },
   "dpicon": {
     title: "Dpicon - AI Image Generation",
