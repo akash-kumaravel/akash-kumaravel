@@ -112,7 +112,7 @@ function SocialBtn({
 // ─── Hero Section ───────────────────────────────────────────────────────────
 
 function HeroSection() {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
@@ -122,10 +122,21 @@ function HeroSection() {
     }
   };
 
-  const heroVideoSrc = assetPath("hero.mp4");
+  const handleHeroInteraction = () => {
+    if (isMuted) {
+      setIsMuted(false);
+    }
+  };
+
+  const heroVideoSrc = "https://res.cloudinary.com/v5aoakni/video/upload/v1786942168/hero_2.mp4";
 
   return (
-    <section id="hero" className="relative bg-black text-white overflow-hidden h-screen min-h-screen w-full flex flex-col justify-end select-none">
+    <section
+      id="hero"
+      onClick={handleHeroInteraction}
+      onTouchStart={handleHeroInteraction}
+      className="relative bg-black text-white overflow-hidden h-screen min-h-screen w-full flex flex-col justify-end select-none cursor-pointer"
+    >
       {/* ─── Responsive Full Screen Local Video Background ─────────────────────── */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 bg-black pointer-events-none">
         <video
@@ -134,6 +145,7 @@ function HeroSection() {
           loop
           muted={isMuted}
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none"
         />
         {/* Subtle Dark Gradient Overlay for optimal text legibility */}
