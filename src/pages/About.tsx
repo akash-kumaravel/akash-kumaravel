@@ -46,10 +46,10 @@ export default function About() {
 
   const milestones = [
     {
-      year: "2025 - Present",
+      year: "2025 - Current",
       title: "Feather Softwares",
       role: "UI UX Designer",
-      desc: "Experienced in UX, product, and graphic design for B2B products, branding, websites, and mobile apps, creating impactful user experiences and cohesive brand identities.",
+      desc: "Leading UI/UX, product, and graphic design for B2B clients covering brand identity, website design, and mobile app interfaces, with a focus on translating business requirements into polished, user-centered digital products.",
       logoSrc: assetPath("feathersoftwareslogo.webp"),
       logoAlt: "Feather Softwares logo",
       logoFit: "object-contain",
@@ -60,7 +60,7 @@ export default function About() {
       year: "2024 - 2025",
       title: "Memo Infotech",
       role: "UI UX Designer / Graphic Designer",
-      desc: "Experienced in UX, product, and graphic design for B2B products, branding, websites, and mobile apps, creating impactful user experiences and cohesive brand identities.",
+      desc: "UI/UX and graphic design for mobile app and SaaS products, from wireframes to final visuals while also driving brand and marketing design (email campaigns, logos) to strengthen the company's market presence.",
       logoSrc: assetPath("memo.svg"),
       logoAlt: "Memo Infotech logo",
       logoFit: "object-contain",
