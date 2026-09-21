@@ -44,7 +44,20 @@ export default function About() {
     },
   ];
 
-  const milestones = [
+  interface Milestone {
+    year: string;
+    title: string;
+    role: string;
+    desc: string;
+    logoSrc?: string;
+    logoAlt?: string;
+    logoFit?: string;
+    logoColor?: string;
+    logoBg?: string;
+    logoIcon?: React.ComponentType<{ size?: number; className?: string }>;
+  }
+
+  const milestones: Milestone[] = [
     {
       year: "2025 - Current",
       title: "Feather Softwares",
@@ -54,7 +67,8 @@ export default function About() {
       logoAlt: "Feather Softwares logo",
       logoFit: "object-contain",
       logoColor: "text-[#007AFF]",
-      logoBg: "bg-[#007AFF]/10 border-[#007AFF]/20"
+      logoBg: "bg-[#007AFF]/10 border-[#007AFF]/20",
+      logoIcon: Feather
     },
     {
       year: "2024 - 2025",
@@ -65,7 +79,8 @@ export default function About() {
       logoAlt: "Memo Infotech logo",
       logoFit: "object-contain",
       logoColor: "text-[#007AFF]",
-      logoBg: "bg-black/[0.04] border-black/10"
+      logoBg: "bg-black/[0.04] border-black/10",
+      logoIcon: Layers
     },
     {
       year: "2022 - 2023",
@@ -76,7 +91,8 @@ export default function About() {
       logoAlt: "Hyundai Motor company logo",
       logoFit: "object-contain",
       logoColor: "text-[#007AFF]",
-      logoBg: "bg-black/[0.04] border-black/10"
+      logoBg: "bg-black/[0.04] border-black/10",
+      logoIcon: Car
     },
   ];
 
@@ -84,7 +100,7 @@ export default function About() {
     <main className="min-h-screen bg-white font-inter text-[#1A1A1A]">
       
       {/* Hero Section */}
-      <section className="px-8 pt-20 sm:pt-24 pb-16 relative overflow-hidden bg-[#FAF9F6]">
+      <section className="px-6 sm:px-8 pt-8 sm:pt-14 pb-16 relative overflow-hidden bg-[#FAF9F6]">
         {/* Abstract background grid */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1.5px, transparent 1.5px)', backgroundSize: '32px 32px' }} />
         

@@ -1,21 +1,14 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React from "react";
 import { 
-  ArrowRight, 
   Globe, 
   Mail, 
   Linkedin, 
-  Phone, 
-  ExternalLink,
-  Loader2,
-  Volume2,
-  VolumeX
+  ExternalLink 
 } from "lucide-react";
 import { motion } from "motion/react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Footer from "../components/Footer";
 import { assetPath } from "../data/portfolioData";
-import { sendContactEmail } from "../lib/email";
 
 const MotionLink = motion.create(Link);
 
@@ -109,110 +102,7 @@ function SocialBtn({
   );
 }
 
-// ─── Hero Section ───────────────────────────────────────────────────────────
 
-function HeroSection() {
-  const [isMuted, setIsMuted] = useState(true);
-  const navigate = useNavigate();
-
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleHeroInteraction = () => {
-    if (isMuted) {
-      setIsMuted(false);
-    }
-  };
-
-  const heroVideoSrc = "https://res.cloudinary.com/v5aoakni/video/upload/v1786942168/hero_2.mp4";
-
-  return (
-    <section
-      id="hero"
-      onClick={handleHeroInteraction}
-      onTouchStart={handleHeroInteraction}
-      className="relative bg-black text-white overflow-hidden h-screen min-h-screen w-full flex flex-col justify-end select-none cursor-pointer"
-    >
-      {/* ─── Responsive Full Screen Local Video Background ─────────────────────── */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 bg-black pointer-events-none">
-        <video
-          src={heroVideoSrc}
-          autoPlay
-          loop
-          muted={isMuted}
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none"
-        />
-        {/* Subtle Dark Gradient Overlay for optimal text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30 pointer-events-none z-10" />
-      </div>
-
-      {/* ─── Sound Toggle Button (Bottom Right) ────────────────────── */}
-      <div className="absolute bottom-10 sm:bottom-16 right-6 sm:right-10 z-30">
-        <button
-          onClick={() => setIsMuted(!isMuted)}
-          className="flex items-center gap-2 bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
-        >
-          {isMuted ? (
-            <>
-              <VolumeX size={16} className="text-red-400" />
-              <span>Sound Off</span>
-            </>
-          ) : (
-            <>
-              <Volume2 size={16} className="text-[#31EE33] animate-pulse" />
-              <span>Sound On</span>
-            </>
-          )}
-        </button>
-      </div>
-
-      {/* ─── Hero Content Overlay (Bottom Left) ───────────────────────────────── */}
-      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-10 sm:pb-16 z-20 flex flex-col justify-end">
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl"
-        >
-          {/* Main Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[50px] font-bold tracking-tight leading-[1.08] text-white font-sans drop-shadow-md">
-            Akash.
-          </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[50px] font-bold tracking-tight leading-[1.08] text-white/70 mb-3 sm:mb-4 font-sans drop-shadow-md">
-            UI UX Designer.
-          </h2>
-
-          {/* Subtitle Paragraph */}
-          <p className="text-white/90 text-xs sm:text-sm md:text-base font-normal leading-relaxed max-w-lg mb-5 sm:mb-6 font-sans drop-shadow-sm">
-            Product &amp; Interaction Designer crafting distinct brand identities, pixel-perfect user interfaces, and automated Figma utility systems.
-          </p>
-
-          {/* Action Pill Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => navigate('/contact')}
-              className="bg-white text-[#111827] hover:bg-white/95 font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full flex items-center gap-2 text-xs sm:text-sm shadow-xl transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
-            >
-              <span>Hire me</span>
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm transition-all cursor-pointer"
-            >
-              About me
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // ─── My Products Section ─────────────────────────────────────────────────────
 
@@ -251,7 +141,7 @@ function MyProductsSection() {
     <section id="projects" className="border-b border-black/10 px-8 py-20">
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader title="Websites" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {products.map((p, idx) => (
             <motion.div 
               key={p.title}
@@ -316,10 +206,10 @@ const apps = [
 
 function AppsSection() {
   return (
-    <section className="border-b border-black/10 px-8 py-20">
+    <section id="works" className="border-b border-black/10 px-6 sm:px-8 pt-8 sm:pt-12 pb-20 sm:pb-24">
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader title="Apps" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {apps.map((app, idx) => (
             <motion.div 
               key={app.title} 
@@ -358,6 +248,13 @@ function AppsSection() {
 
 const plugins = [
   {
+    image: assetPath("BGWRAP plugin.jpg"),
+    title: "BGWRAP - Background remover",
+    alt: "bgwrap",
+    slug: "bgwrap-plugin",
+    externalUrl: "https://www.figma.com/community/plugin/1500147712889678037",
+  },
+  {
     image: assetPath("gray scale plugin.jpg"),
     title: "Grayscale wireframe Conveter",
     alt: "Grayscale wireframe Converter",
@@ -371,13 +268,6 @@ const plugins = [
     slug: "dpicon-svg",
     externalUrl: "https://www.figma.com/community/plugin/1488603996276952817",
   },
-  {
-    image: assetPath("BGWRAP plugin.jpg"),
-    title: "BGWRAP - Background remover",
-    alt: "bgwrap",
-    slug: "bgwrap-plugin",
-    externalUrl: "https://www.figma.com/community/plugin/1500147712889678037",
-  },
 ];
 
 function FigmaPluginsSection() {
@@ -385,7 +275,7 @@ function FigmaPluginsSection() {
     <section className="border-b border-black/10 px-8 py-20">
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader title="Figma Plugins" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {plugins.map((p, idx) => {
             if (p.externalUrl) {
               return (
@@ -472,7 +362,7 @@ function GraphicDesignsSection() {
     <section className="border-b border-black/10 py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 mb-20">
         <SectionHeader title="Graphic Designs" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[600px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {graphicDesigns.map((d, idx) => (
             <MotionLink 
               to={`/project/${d.slug}`} 
@@ -519,177 +409,16 @@ function GraphicDesignsSection() {
   );
 }
 
-// ─── Contact Section ─────────────────────────────────────────────────────────
-
-function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError(null);
-    try {
-      await sendContactEmail(form);
-      setSubmitted(true);
-      setForm({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitted(false), 5000);
-    } catch (err: any) {
-      console.error("EmailJS error:", err);
-      setError("Failed to send message. Please try again or email directly.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <section id="contact" className="px-8 py-24 bg-white relative overflow-hidden">
-       {/* Background Decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-[0.03] select-none text-[20vw] font-black whitespace-nowrap overflow-hidden">
-        HAVE A PROJECT? HAVE A PROJECT? HAVE A PROJECT?
-      </div>
-
-      <div className="max-w-[1400px] mx-auto z-10 relative">
-        <div className="flex flex-col lg:flex-row gap-20 items-start">
-          {/* Left: text */}
-          <div className="flex-1">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A1A1A] mb-8"
-            >
-              LET'S <br/><span className="text-[#007AFF]">TALK.</span>
-            </motion.h2>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] mb-4">
-              Ready to Create Something Amazing Together?
-            </h3>
-            <p className="text-[#555] text-base sm:text-lg font-normal leading-relaxed mb-8">
-              As a passionate UI/UX designer, I love turning ideas into
-              intuitive, user-friendly experiences. Let's collaborate to bring your vision to life.
-            </p>
-            <div className="flex flex-col gap-4">
-              <a href="mailto:akashuxui@gmail.com" className="flex items-center gap-3 text-base sm:text-lg font-semibold text-[#1A1A1A] hover:text-[#007AFF] transition-colors">
-                <span className="p-3 bg-black text-white rounded-full"><Mail size={24}/></span>
-                akashuxui@gmail.com
-              </a>
-              <a href="tel:+916369957006" className="flex items-center gap-3 text-base sm:text-lg font-semibold text-[#1A1A1A] hover:text-[#007AFF] transition-colors">
-                <span className="p-3 bg-black text-white rounded-full"><Phone size={24}/></span>
-                +91 63699 57006
-              </a>
-            </div>
-          </div>
-
-          {/* Right: form */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex-1 w-full p-8 md:p-12 rounded-[40px] bg-[#F9FAFB] border border-black/5 shadow-2xl shadow-black/5"
-          >
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="flex flex-col gap-3">
-                  <label className="text-[#1A1A1A] text-sm font-bold uppercase tracking-widest">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Akash Kumaravel"
-                    className="w-full h-14 px-6 rounded-2xl text-base text-[#1A1A1A] bg-white border border-black/10 outline-none focus:border-[#007AFF] focus:ring-4 focus:ring-[#007AFF]/10 transition-all"
-                  />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <label className="text-[#1A1A1A] text-sm font-bold uppercase tracking-widest">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="akashuxui@gmail.com"
-                    className="w-full h-14 px-6 rounded-2xl text-base text-[#1A1A1A] bg-white border border-black/10 outline-none focus:border-[#007AFF] focus:ring-4 focus:ring-[#007AFF]/10 transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <label className="text-[#1A1A1A] text-sm font-bold uppercase tracking-widest">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  rows={6}
-                  className="w-full px-6 py-5 rounded-2xl text-base text-[#1A1A1A] bg-white border border-black/10 outline-none focus:border-[#007AFF] focus:ring-4 focus:ring-[#007AFF]/10 transition-all resize-none"
-                />
-              </div>
-
-              {error && (
-                <p className="text-red-500 text-sm font-medium text-center">{error}</p>
-              )}
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={submitting || submitted}
-                className={`w-full h-16 rounded-2xl text-lg font-bold transition-all flex items-center justify-center gap-2 ${
-                  submitted
-                    ? "bg-[#007AFF] text-white"
-                    : "bg-black text-white hover:bg-[#333] disabled:opacity-70"
-                }`}
-              >
-                {submitting ? (
-                  <>
-                    <span>Sending...</span>
-                    <Loader2 size={20} className="animate-spin" />
-                  </>
-                ) : submitted ? (
-                  "Message Sent!"
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <ArrowRight size={20} />
-                  </>
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   return (
     <div className="bg-[#FFFFFF] font-inter text-[#1A1A1A] selection:bg-[#007AFF] selection:text-white">
       <main>
-        <HeroSection />
         <AppsSection />
         <FigmaPluginsSection />
         <MyProductsSection />
         <GraphicDesignsSection />
-        <ContactSection />
-        <Footer />
       </main>
     </div>
   );

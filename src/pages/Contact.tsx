@@ -45,9 +45,9 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-white font-inter text-[#1A1A1A] pt-24 sm:pt-28 flex flex-col justify-between">
+    <main className="min-h-screen bg-white font-inter text-[#1A1A1A] pt-6 sm:pt-10 flex flex-col justify-between">
       
-      <section className="px-6 sm:px-8 py-16 sm:py-24 relative overflow-hidden flex-1">
+      <section className="px-6 sm:px-8 py-8 sm:py-16 relative overflow-hidden flex-1">
         {/* Background Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-[0.03] select-none text-[18vw] font-black whitespace-nowrap overflow-hidden">
           GET IN TOUCH GET IN TOUCH
@@ -69,11 +69,11 @@ export default function Contact() {
               </motion.h1>
 
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] mb-4">
-                Ready to Create Something Amazing Together?
+                Open to New Opportunities
               </h2>
 
               <p className="text-[#555] text-base sm:text-lg font-normal leading-relaxed mb-10 max-w-xl">
-                As a passionate UI/UX designer, I love turning ideas into intuitive, user-friendly experiences. Let's collaborate to bring your vision to life.
+                I'm a UI/UX designer with 3+ years of experience building user-centered products, currently looking for my next full-time role. Let's talk about how I can contribute to your team.
               </p>
 
               <div className="flex flex-col gap-5">

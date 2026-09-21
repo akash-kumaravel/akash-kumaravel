@@ -37,7 +37,7 @@ const articles: Blog3Post[] = [
 
 export default function DesignPhilosophyPage() {
   return (
-    <div className="bg-white min-h-screen font-inter text-[#202020] pt-24 pb-4 selection:bg-[#007AFF] selection:text-white">
+    <div className="bg-white min-h-screen font-inter text-[#202020] pt-8 sm:pt-12 pb-4 selection:bg-[#007AFF] selection:text-white">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import {
+  ArrowLeft,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -23,8 +24,6 @@ import {
   Heart
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import ScrollRevealCard from '../components/ScrollRevealCard';
 import TargetUserCards from '../components/TargetUserCards';
 import DesignProcessTimeline from '../components/DesignProcessTimeline';
@@ -67,14 +66,18 @@ export default function LegalLinkPage({
       exit={{ opacity: 0 }}
       className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans selection:bg-[#007AFF] selection:text-white"
     >
-      <Navbar
-        onOpenModal={(type) => onOpenModal?.(type)}
-        activePage="legallink"
-        onNavigateHome={handleBack}
-      />
+      {/* Top back navigation */}
+      <div className="w-full max-w-[1008px] mx-auto px-4 pt-6 sm:pt-8 pb-2">
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black transition-colors cursor-pointer"
+        >
+          <ArrowLeft size={14} /> Back to Works
+        </button>
+      </div>
 
       {/* Hero */}
-      <section className="w-full pt-20 sm:pt-28 pb-4">
+      <section className="w-full pt-2 pb-4">
         <ScrollRevealCard className="max-w-[1008px] mx-auto px-4">
           <div className="w-full max-w-[1008px] mx-auto py-2">
             <motion.div
@@ -427,8 +430,6 @@ export default function LegalLinkPage({
           </button>
         </div>
       </section>
-
-      <Footer />
     </motion.div>
   );
 }

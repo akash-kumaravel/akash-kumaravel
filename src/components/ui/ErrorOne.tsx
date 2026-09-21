@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { RiHome5Fill } from 'react-icons/ri';
+import { Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export interface ErrorOneAction {
@@ -118,7 +118,7 @@ export function ErrorOne({
 export const defaultErrorOneAction: ErrorOneAction = {
   label: 'Go Back Home',
   href: '/',
-  icon: <RiHome5Fill className="text-lg" aria-hidden="true" />,
+  icon: <Home className="w-5 h-5" aria-hidden="true" />,
 };
 
 export default ErrorOne;

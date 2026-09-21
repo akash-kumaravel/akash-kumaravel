@@ -9,7 +9,7 @@ import CollectiblesPage from "./pages/CollectiblesPage.tsx";
 import FlintPage from "./pages/FlintPage.tsx";
 import DesignPhilosophyPage from "./pages/DesignPhilosophyPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
-import Navbar from "./components/Navbar.tsx";
+import LeftSidebar from "./components/LeftSidebar.tsx";
 import { RESUME_PDF_URL } from "./data/portfolioData.ts";
 
 function ResumeRedirect() {
@@ -24,16 +24,7 @@ function ResumeRedirect() {
 }
 
 function NavigationWrapper() {
-  const location = useLocation();
-  if (
-    location.pathname === '/project/legal-link' ||
-    location.pathname === '/project/spark' ||
-    location.pathname === '/project/collectibles' ||
-    location.pathname === '/project/flint'
-  ) {
-    return null;
-  }
-  return <Navbar />;
+  return <LeftSidebar />;
 }
 
 function ScrollToHashAndTop() {
@@ -73,27 +64,39 @@ function ScrollToHashAndTop() {
   return null;
 }
 
+function AppContent() {
+  return (
+    <div className="min-h-screen bg-white text-[#1A1A1A]">
+      <NavigationWrapper />
+      <div className="lg:pl-80 xl:pl-[320px] pt-14 lg:pt-0 min-h-screen flex flex-col">
+        <div className="flex-1 w-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<ResumeRedirect />} />
+            <Route path="/design-philosophy" element={<DesignPhilosophyPage />} />
+            <Route path="/philosophy" element={<DesignPhilosophyPage />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Home />} />
+            <Route path="/project/legal-link" element={<LegalLinkPage />} />
+            <Route path="/project/flint" element={<FlintPage />} />
+            <Route path="/project/spark" element={<CollectiblesPage />} />
+            <Route path="/project/collectibles" element={<CollectiblesPage />} />
+            <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToHashAndTop />
-      <NavigationWrapper />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<ResumeRedirect />} />
-        <Route path="/design-philosophy" element={<DesignPhilosophyPage />} />
-        <Route path="/philosophy" element={<DesignPhilosophyPage />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Home />} />
-        <Route path="/project/legal-link" element={<LegalLinkPage />} />
-        <Route path="/project/flint" element={<FlintPage />} />
-        <Route path="/project/spark" element={<CollectiblesPage />} />
-        <Route path="/project/collectibles" element={<CollectiblesPage />} />
-        <Route path="/project/:slug" element={<ProjectDetail />} />
-        <Route path="/404" element={<NotFoundPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AppContent />
     </BrowserRouter>
   );
 }

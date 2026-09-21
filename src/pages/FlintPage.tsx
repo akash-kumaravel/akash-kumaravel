@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import {
+  ArrowLeft,
   ArrowRight,
-  CheckCircle2,
   ShieldCheck,
   TrendingUp,
   Brain,
   Search,
   Users,
-  AlertTriangle,
   Lightbulb,
   Crosshair,
   UserCheck,
@@ -32,8 +31,6 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import ScrollRevealCard from '../components/ScrollRevealCard';
 import { ModalType } from '../types';
 import { assetPath } from '../data/portfolioData';
@@ -129,14 +126,18 @@ export default function FlintPage({
       exit={{ opacity: 0 }}
       className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans selection:bg-[#5C019E] selection:text-white"
     >
-      <Navbar
-        onOpenModal={(type) => onOpenModal?.(type)}
-        activePage="flint"
-        onNavigateHome={handleBack}
-      />
+      {/* Top back navigation */}
+      <div className="w-full max-w-[1008px] mx-auto px-4 pt-6 sm:pt-8 pb-2">
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black transition-colors cursor-pointer"
+        >
+          <ArrowLeft size={14} /> Back to Works
+        </button>
+      </div>
 
       {/* Hero Section */}
-      <section className="w-full pt-20 sm:pt-28 pb-4">
+      <section className="w-full pt-2 pb-4">
         <ScrollRevealCard className="max-w-[1008px] mx-auto px-4">
           <div className="w-full max-w-[1008px] py-2 mx-auto">
             <div className="w-full max-w-[1008px] bg-[#141414] text-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] p-5 sm:p-8 md:p-14 flex flex-col items-center justify-center text-center gap-6 sm:gap-8 border border-white/10 relative overflow-hidden shadow-2xl">
@@ -391,59 +392,6 @@ export default function FlintPage({
         </div>
       </section>
 
-      {/* Problem Statement & Solutions */}
-      <section className="w-full max-w-[1140px] mx-auto px-6 md:px-12 py-12 flex flex-col gap-12 border-t border-gray-100">
-        <div>
-          <span className="font-sans font-bold text-xs tracking-widest uppercase text-gray-400">
-            Pain Points &amp; Interventions
-          </span>
-          <h2 className="font-sans font-bold text-[32px] md:text-[40px] text-gray-900 mt-1">
-            Problem Statement &amp; Solutions
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            {
-              problem: "Many users struggle to keep track of their daily spending, leading to overspending and poor financial management. Traditional banking apps provide only transaction histories without real-time insights.",
-              solution: "Flint offers an AI-powered Financial Health Checkup, which analyzes spending patterns and provides real-time insights. Users receive categorized reports, predictive budgeting tips, and alerts when exceeding budgets."
-            },
-            {
-              problem: "Most digital payment apps require multiple steps to complete a transaction, including selecting a recipient, entering the amount, and confirming payment. This process can be time-consuming.",
-              solution: "Flint integrates an AI-powered voice assistant that allows users to make payments through simple voice commands, e.g., 'Send ₹500 to Rahul', instantly opening biometric verification to complete payments."
-            },
-            {
-              problem: "Users often forget to pay their bills on time, leading to late fees, service disruptions, and unnecessary stress. Current apps send reminders, but they are not personalized enough.",
-              solution: "Flint’s Smart AI Reminders track due dates for electricity, rent, and other bills. The app predicts upcoming payments based on past transactions and automatically schedules proactive auto-pay options."
-            },
-            {
-              problem: "Adding AI and voice commands increases concerns about privacy and data security, as sensitive financial data is processed.",
-              solution: "Flint’s AI assistant is built with privacy-first architecture, ensuring end-to-end data encryption, secure voice recognition, and strict adherence to global security standards."
-            }
-          ].map((item, idx) => (
-            <div key={idx} className="bg-[#FAF9FE] border border-purple-100 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-2xs">
-              <div className="flex flex-col gap-2 border-b border-purple-100 pb-4">
-                <div className="flex items-center gap-2 text-rose-600 font-sans font-bold text-xs uppercase tracking-wider">
-                  <AlertTriangle className="w-4 h-4" /> Problem {idx + 1}
-                </div>
-                <p className="font-sans text-gray-700 text-base leading-relaxed">
-                  {item.problem}
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-emerald-600 font-sans font-bold text-xs uppercase tracking-wider">
-                  <CheckCircle2 className="w-4 h-4" /> Flint Solution
-                </div>
-                <p className="font-sans font-medium text-gray-900 text-base leading-relaxed">
-                  {item.solution}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* SWOT Analysis */}
       <section className="w-full max-w-[1140px] mx-auto px-6 md:px-12 py-12 flex flex-col gap-10 border-t border-gray-100">
         <div>
@@ -655,69 +603,6 @@ export default function FlintPage({
         })()}
       </section>
 
-      {/* User Journey Mapping */}
-      <section className="w-full max-w-[1140px] mx-auto px-6 md:px-12 py-12 flex flex-col gap-10 border-t border-gray-100">
-        <div>
-          <span className="font-sans font-bold text-xs tracking-widest uppercase text-gray-400">
-            User Experience Steps
-          </span>
-          <h2 className="font-sans font-bold text-[32px] md:text-[40px] text-gray-900 mt-1">
-            User Journey Mapping
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            {
-              stage: 'Pre-App Discovery',
-              actions: 'Realizes they need better control over expenses. Uses spreadsheets or notes to track spending. Feels overwhelmed with multiple banking apps.',
-              pain: 'Manual tracking is time-consuming. No insights on spending patterns. Misses bill payments due to lack of reminders.',
-              fix: 'AI-driven insights automate expense tracking.',
-            },
-            {
-              stage: 'Current Process',
-              actions: 'Uses UPI apps like GPay, PhonePe, or Net Banking. Enters details manually for each transaction. Checks balances across separate apps.',
-              pain: 'Switching between multiple apps is frustrating. No AI-driven spending insights. Transactions can be slow.',
-              fix: 'Smart assistant helps manage money with voice commands.',
-            },
-            {
-              stage: 'Expense Tracking',
-              actions: 'Reviews SMS or bank statements to check expenses. Uses finance apps or manual logs. Tries to categorize expenses manually.',
-              pain: 'No automatic categorization of expenses. Hard to identify where money is going. No real-time alerts or AI recommendations.',
-              fix: 'One app for payments, tracking, and financial planning.',
-            },
-            {
-              stage: 'Financial Planning',
-              actions: 'Sets reminders on mobile for bills. Uses Excel sheets or budgeting apps. Struggles to track & limit overspending.',
-              pain: 'Budgeting requires too much effort. No AI-based insights for smarter spending. Forgetfulness leads to penalties.',
-              fix: 'Real-time fraud alerts and security monitoring.',
-            },
-          ].map((step, idx) => (
-            <div key={step.stage} className="bg-white border-2 border-gray-200 rounded-3xl p-6 flex flex-col gap-4 shadow-2xs">
-              <div className="px-3 py-1 bg-[#5C019E] text-white font-sans font-bold text-xs rounded-full w-fit">
-                Stage 0{idx + 1}
-              </div>
-              <h3 className="font-sans font-bold text-xl text-gray-900">{step.stage}</h3>
-
-              <div className="flex flex-col gap-1 text-xs text-gray-600">
-                <span className="font-bold text-gray-800 uppercase tracking-wider">User Actions</span>
-                <p>{step.actions}</p>
-              </div>
-
-              <div className="flex flex-col gap-1 text-xs text-rose-600 bg-rose-50/60 p-3 rounded-xl border border-rose-100">
-                <span className="font-bold uppercase tracking-wider">Pain Points</span>
-                <p>{step.pain}</p>
-              </div>
-
-              <div className="flex flex-col gap-1 text-xs text-emerald-700 bg-emerald-50/60 p-3 rounded-xl border border-emerald-100 mt-auto">
-                <span className="font-bold uppercase tracking-wider">Fix</span>
-                <p>{step.fix}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Flint SVG Illustration */}
       <section className="w-full max-w-[1140px] mx-auto px-6 md:px-12 py-12 flex flex-col items-center gap-8 border-t border-gray-100">
         <img
@@ -761,8 +646,6 @@ export default function FlintPage({
           </button>
         </div>
       </section>
-
-      <Footer />
     </motion.div>
   );
 }

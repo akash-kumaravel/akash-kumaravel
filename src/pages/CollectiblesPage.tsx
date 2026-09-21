@@ -3,6 +3,7 @@ import DesignProcessTimeline from '../components/DesignProcessTimeline';
 import React from 'react';
 import { motion } from 'motion/react';
 import {
+  ArrowLeft,
   ArrowRight,
   Building,
   Calendar,
@@ -28,8 +29,6 @@ import {
   Share2
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import ScrollRevealCard from '../components/ScrollRevealCard';
 import { ModalType } from '../types';
 
@@ -69,14 +68,18 @@ export default function CollectiblesPage({
       exit={{ opacity: 0 }}
       className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans selection:bg-[#007AFF] selection:text-white"
     >
-      <Navbar
-        onOpenModal={(type) => onOpenModal?.(type)}
-        activePage="collectibles"
-        onNavigateHome={handleBack}
-      />
+      {/* Top back navigation */}
+      <div className="w-full max-w-[1008px] mx-auto px-4 pt-6 sm:pt-8 pb-2">
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black transition-colors cursor-pointer"
+        >
+          <ArrowLeft size={14} /> Back to Works
+        </button>
+      </div>
 
       {/* Hero Section */}
-      <section className="w-full pt-20 sm:pt-28 pb-4">
+      <section className="w-full pt-2 pb-4">
         <ScrollRevealCard className="max-w-[1008px] mx-auto px-4">
           <div className="w-full max-w-[1008px] py-2 mx-auto">
             <div className="w-full max-w-[1008px] bg-[#141414] text-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] p-5 sm:p-8 md:p-14 flex flex-col items-center justify-center text-center gap-6 sm:gap-8 border border-white/10 relative overflow-hidden shadow-2xl">
@@ -535,8 +538,6 @@ export default function CollectiblesPage({
           </button>
         </div>
       </section>
-
-      <Footer />
     </motion.div>
   );
 }

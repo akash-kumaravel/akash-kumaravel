@@ -68,8 +68,14 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigateHom
   const isStoriesActive = activePage === 'stories' || location.pathname === '/about';
   const isContactActive = activePage === 'services' || activePage === 'contact' || location.pathname === '/contact';
 
+  const showFloatingNavbar = true;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center w-full px-4 pt-3 transition-all duration-300">
+    <header className={`fixed top-0 left-0 right-0 z-[100] flex justify-center w-full px-4 pt-3 transition-all duration-300 ${
+      showFloatingNavbar 
+        ? "opacity-100 translate-y-0 pointer-events-auto" 
+        : "opacity-0 -translate-y-16 pointer-events-none"
+    }`}>
       <div className="w-full max-w-[1150px] bg-white/85 backdrop-blur-md border border-white/20 rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.15)] px-4 py-2.5 flex items-center justify-between transition-all duration-300">
         
         {/* Left Social & Home Pill Links */}
@@ -78,18 +84,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigateHom
           <a
             href="#"
             onClick={handleHomeClick}
-            className="flex items-center justify-center w-10 h-10 bg-black hover:bg-gray-800 rounded-full transition-transform duration-200 hover:scale-105 active:scale-95 shadow-sm"
+            className="flex items-center justify-center w-10 h-10 rounded-full transition-transform duration-200 hover:scale-105 active:scale-95 shadow-sm overflow-hidden border border-black/10"
             title="Home"
             aria-label="Home"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="m19.773 19.474 1.67-10a3 3 0 0 0-.27-1.71 2.926 2.926 0 0 0-1.16-1.28l-6.47-4a3 3 0 0 0-3.15 0l-6.48 4a3 3 0 0 0-1.12 1.29 3 3 0 0 0-.23 1.7l1.67 10a3 3 0 0 0 2.93 2.49H10V15a2 2 0 1 1 4 0v6.964h2.773a3.21 3.21 0 0 0 2-.7 3 3 0 0 0 1-1.79Z"
-                fill="#FFFFFF"
-              />
-            </svg>
+            <img 
+              src="https://akashuiux.vercel.app/assets/profile.jpg" 
+              alt="Akash" 
+              className="w-full h-full object-cover object-top"
+              referrerPolicy="no-referrer"
+            />
           </a>
 
           {/* LinkedIn Link */}
