@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akashuxui.vercel.app/sitemap.xml
+Sitemap: https://akashuiux.vercel.app/sitemap.xml
