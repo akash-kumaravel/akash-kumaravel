@@ -9,6 +9,7 @@ import CollectiblesPage from "./pages/CollectiblesPage.tsx";
 import FlintPage from "./pages/FlintPage.tsx";
 import DesignPhilosophyPage from "./pages/DesignPhilosophyPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
+import ToolPage from "./pages/ToolPage.tsx";
 import LeftSidebar from "./components/LeftSidebar.tsx";
 import { RESUME_PDF_URL } from "./data/portfolioData.ts";
 
@@ -82,6 +83,7 @@ function AppContent() {
             <Route path="/project/flint" element={<FlintPage />} />
             <Route path="/project/spark" element={<CollectiblesPage />} />
             <Route path="/project/collectibles" element={<CollectiblesPage />} />
+            <Route path="/tool/:slug" element={<ToolPage />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />

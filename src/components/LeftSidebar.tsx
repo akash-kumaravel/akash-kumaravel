@@ -129,7 +129,7 @@ export default function LeftSidebar({ activePage, onNavigateHome }: LeftSidebarP
           className="flex items-center gap-2.5"
         >
           <img 
-            src="https://akashuiux.vercel.app/assets/profile.jpg" 
+            src="/assets/profile.jpg" 
             alt="Akash Kumaravel" 
             className="w-8 h-8 rounded-lg object-cover object-top border border-black/10 shadow-xs" 
             referrerPolicy="no-referrer"
@@ -185,7 +185,7 @@ export default function LeftSidebar({ activePage, onNavigateHome }: LeftSidebarP
               <div className="flex items-center justify-between pb-3 border-b border-black/10">
                 <div className="flex items-center gap-2.5">
                   <img 
-                    src="https://akashuiux.vercel.app/assets/profile.jpg" 
+                    src="/assets/profile.jpg" 
                     alt="Akash Kumaravel" 
                     className="w-8 h-8 rounded-lg object-cover object-top border border-black/10 shadow-xs" 
                     referrerPolicy="no-referrer"
@@ -307,7 +307,7 @@ export default function LeftSidebar({ activePage, onNavigateHome }: LeftSidebarP
           >
             <div className="flex items-center gap-3">
               <img 
-                src="https://akashuiux.vercel.app/assets/profile.jpg" 
+                src="/assets/profile.jpg" 
                 alt="Akash Kumaravel" 
                 className="w-10 h-10 rounded-xl object-cover object-top border border-black/10 shadow-xs group-hover:scale-105 transition-transform" 
                 referrerPolicy="no-referrer"
@@ -332,7 +332,7 @@ export default function LeftSidebar({ activePage, onNavigateHome }: LeftSidebarP
           {/* Compact Bio with Tag Highlights */}
           <div className="space-y-2 text-[13px] leading-relaxed text-[#555555]">
             <p>
-              <span className="inline-block px-1.5 py-0.5 bg-[#f0f0f2] text-[#111111] font-medium rounded text-[12px]">3+ years</span> designing digital products &amp; design systems at <span className="inline-block px-1.5 py-0.5 bg-[#f0f0f2] text-[#111111] font-medium rounded text-[12px]">Feather Softwares</span>.
+              Designing digital products &amp; design systems at <span className="inline-block px-1.5 py-0.5 bg-[#f0f0f2] text-[#111111] font-medium rounded text-[12px]">Feather Softwares</span>.
             </p>
             <p className="text-[12.5px] text-[#666666]">
               Previously at <span className="inline-block px-1.5 py-0.5 bg-[#f0f0f2] text-[#111111] font-medium rounded text-[11.5px]">Memo Infotech</span> and <span className="inline-block px-1.5 py-0.5 bg-[#f0f0f2] text-[#111111] font-medium rounded text-[11.5px]">Hyundai Motor</span>.

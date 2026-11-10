@@ -108,12 +108,18 @@ function SocialBtn({
 
 const products = [
   {
+    image: assetPath("sequelbox-card.webp"),
+    category: "Video Editor",
+    title: "Sequelbox - Video editor",
+    alt: "Sequelbox video editor",
+    slug: "sequelbox",
+  },
+  {
     image: assetPath("background remover.png"),
     category: "Background Remover",
     title: "BGWrap-Background Remover",
-    alt: "OceanCache",
+    alt: "BGWrap background remover",
     slug: "bg-wrap",
-    externalUrl: "https://bgwrap.vercel.app/",
   },
   {
     image: assetPath("dpicon.png"),
@@ -121,7 +127,6 @@ const products = [
     title: "Dpicon - AI image generation",
     alt: "Dpicon",
     slug: "dpicon",
-    externalUrl: "https://dpicon.framer.website/",
   },
 ];
 
@@ -140,7 +145,7 @@ function MyProductsSection() {
   return (
     <section id="projects" className="border-b border-black/10 px-8 py-20">
       <div className="max-w-[1400px] mx-auto">
-        <SectionHeader title="Websites" />
+        <SectionHeader title="Products & Websites" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {products.map((p, idx) => (
             <motion.div 
@@ -150,10 +155,8 @@ function MyProductsSection() {
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
             >
-              <a 
-                href={p.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link 
+                to={`/tool/${p.slug}`}
                 className="group cursor-pointer block"
               >
                 <div className="rounded-2xl aspect-square overflow-hidden mb-4 transition-transform duration-500 group-hover:scale-105">
@@ -169,7 +172,7 @@ function MyProductsSection() {
                 <h3 className="text-[#1A1A1A] text-lg sm:text-xl font-semibold leading-tight px-1 group-hover:text-[#007AFF] transition-colors">
                   {p.title}
                 </h3>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -184,7 +187,7 @@ const apps = [
   {
     image: assetPath("flint.png"),
     category: "AI Mobile App",
-    title: "Flint – AI-Powered",
+    title: "Flint – AI Money Transfer & Expenses",
     alt: "Flint",
     slug: "flint",
   },
@@ -198,7 +201,7 @@ const apps = [
   {
     image: assetPath("legal link.png"),
     category: "Legal Tech App",
-    title: "Legal Link – A Smart",
+    title: "Legal Link – A Smart Match",
     alt: "Legal Tech",
     slug: "legal-link",
   },
@@ -248,25 +251,22 @@ function AppsSection() {
 
 const plugins = [
   {
-    image: assetPath("BGWRAP plugin.jpg"),
+    image: assetPath("t-bgwrap-plugin.webp"),
     title: "BGWRAP - Background remover",
     alt: "bgwrap",
     slug: "bgwrap-plugin",
-    externalUrl: "https://www.figma.com/community/plugin/1500147712889678037",
   },
   {
-    image: assetPath("gray scale plugin.jpg"),
-    title: "Grayscale wireframe Conveter",
+    image: assetPath("t-grayscale-plugin.webp"),
+    title: "Grayscale wireframe Converter",
     alt: "Grayscale wireframe Converter",
     slug: "grayscale-converter",
-    externalUrl: "https://www.figma.com/community/plugin/1498582630091227441",
   },
   {
-    image: assetPath("Dpicon plugin.jpg"),
+    image: assetPath("t-dpicon-plugin.webp"),
     title: "Dpicon - SVG Icons",
-    alt: "OceanCache",
+    alt: "Dpicon SVG icons plugin",
     slug: "dpicon-svg",
-    externalUrl: "https://www.figma.com/community/plugin/1488603996276952817",
   },
 ];
 
@@ -277,35 +277,9 @@ function FigmaPluginsSection() {
         <SectionHeader title="Figma Plugins" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {plugins.map((p, idx) => {
-            if (p.externalUrl) {
-              return (
-                <motion.a 
-                  href={p.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group cursor-pointer block"
-                >
-                  <div className="rounded-2xl aspect-square overflow-hidden mb-4 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                    <img
-                      src={p.image}
-                      alt={p.alt}
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                  <h3 className="text-[#1A1A1A] text-lg sm:text-xl font-semibold leading-tight px-1 group-hover:text-[#007AFF] transition-colors">
-                    {p.title}
-                  </h3>
-                </motion.a>
-              );
-            }
             return (
               <MotionLink 
-                to={`/project/${p.slug}`}
+                to={`/tool/${p.slug}`}
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -336,13 +310,13 @@ function FigmaPluginsSection() {
 
 const graphicDesigns = [
   {
-    image: assetPath("memo.png"),
+    image: assetPath("t-memo.webp"),
     title: "MEMO",
     alt: "Memo",
     slug: "memo",
   },
   {
-    image: assetPath("trumphcard .png"),
+    image: assetPath("t-trumphcard.webp"),
     title: "TRUMPHCARD",
     alt: "Trumphcard",
     slug: "trumphcard",

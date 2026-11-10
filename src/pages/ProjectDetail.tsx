@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
+import { TOOLS } from "../data/tools";
 import { 
   ArrowLeft, 
   Layout,
   ExternalLink
 } from "lucide-react";
-import Footer from "../components/Footer";
 
 // ─── Custom Icons ────────────────────────────────────────────────────────────
 
@@ -54,111 +54,6 @@ const projectsData: Record<string, any> = {
     conclusion: "CloudBestie was a rewarding project that allowed me to showcase my skills as both a UI/UX designer and a developer. I designed an intuitive and visually appealing interface that prioritizes user needs, and I developed a functional website that delivers on its promise of secure, time-locked file storage. This project taught me the importance of balancing design and development, collaborating across roles, and focusing on user-centered solutions.",
     tags: ["UX/UI Design", "Product Strategy", "SaaS"],
     type: "product"
-  },
-  "flint": {
-    title: "Flint – AI-Powered App",
-    category: "Flint",
-    mainImage: "/assets/flint.png",
-    intro: "Flint is a revolutionary mobile application that uses artificial intelligence to streamline daily productivity. It acts as a personal assistant that learns from user behavior to automate scheduling and information organization.",
-    problem: "Most productivity apps require significant manual input, adding to the user's workload rather than reducing it. Users often feel overwhelmed by complex task managers and notification fatigue.",
-    objectives: [
-      "Create a 'Zero-Input' productivity system using AI prediction.",
-      "Design a minimal, stress-free mobile interface focused on current priorities.",
-      "Implement smooth gesture-based interactions for rapid task triaging.",
-      "Ensure cross-device synchronization for a seamless workflow."
-    ],
-    approach: "We focused on a 'Conversational UI' first, allowing users to interact with their schedule through natural language. The design utilizes soft shadows and glassmorphism to create a calm, modern digital environment.",
-    challenges: [
-      { label: "Challenge: Organizing high-density information on small mobile screens. Solution: Implementing a 'Focus-Only' view that hides non-essential data until specifically requested by the user." }
-    ],
-    result: "Achieved a 45% increase in user task completion rates and saw a high retention rate due to the app's predictive accuracy.",
-    conclusion: "Flint demonstrates how AI can move from being a novelty to a critical utility in personal management when paired with thoughtful user-centered design.",
-    tags: ["Mobile App", "AI", "Productivity"],
-    type: "app"
-  },
-  "spark": {
-    title: "Spark – Feel the Spark",
-    category: "Spark",
-    mainImage: "/assets/spark.png",
-    intro: "Spark is a social platform that combines trending content, personalized music recommendations, and interactive social engagement. Users can explore viral topics, connect with friends through chats, and discover music seamlessly within the app. Spark bridges the gap between content creation, music discovery, and real-time connections in one intuitive platform.",
-    problem: "Digital connectivity often leads to physical isolation. Traditional social media focuses on global networks, leaving users disconnected from their immediate community.",
-    objectives: [
-      "Bridge the gap between digital interaction and face-to-face meetings.",
-      "Implement low-latency location-based services for real-time networking.",
-      "Design a vibrant, high-energy UI that encourages active participation."
-    ],
-    approach: "The app uses 'Spark Zones'—virtual rooms tied to physical locations. The UI utilizes bold gradients and bouncy animations to reflect the excitement of meeting new people.",
-    challenges: [
-      { label: "Challenge: Maintaining user privacy while using geolocation. Solution: Developing a 'Safe-Radius' system that obfuscates exact locations while still allowing for proximity matching." }
-    ],
-    result: "Spark successfully launched in 10 major university campuses, resulting in over 50,000 successful real-world meetups in the first quarter.",
-    conclusion: "By focusing on local proximity, Spark redefined social networking as a tool for community building rather than just digital scrolling.",
-    tags: ["Social Media", "Location-Based", "Interaction"],
-    type: "app"
-  },
-  "legal-link": {
-    title: "Legal Link – A Smart Match",
-    category: "Legal Tech",
-    mainImage: "/assets/legal%20link.png",
-    intro: "Legal Link is a sophisticated directory and matching service that connects users with expert legal counsel through an intelligent filtering system based on case complexity and budget.",
-    problem: "Finding the right lawyer is traditionally a confusing, opaque process. Users often feel intimidated by legal jargon and uncertain about the costs involved.",
-    objectives: [
-      "Simplify the process of finding specialized legal help.",
-      "Design a trust-focused interface that minimizes user anxiety.",
-      "Create a transparent pricing and review system for legal services."
-    ],
-    approach: "The design philosophy was 'Authority through Clarity'. We used structured layouts, authoritative typography (Serif/Sans mix), and a calm color palette to build user confidence.",
-    challenges: [
-      { label: "Challenge: Building trust in a digital legal environment. Solution: Implementing a rigorous verification badge system and detailed attorney profiles with verified client testimonials." }
-    ],
-    result: "Became the leading legal matching platform in its region with over 5,000 verified attorneys and a 92% client satisfaction score.",
-    conclusion: "Legal Link proves that even traditional, complex industries can be made accessible through professional, transparent digital design.",
-    tags: ["Legal Tech", "Directory", "SaaS"],
-    type: "app"
-  },
-  "bg-wrap": {
-    title: "BGWrap - Background Remover",
-    category: "BGWrap",
-    mainImage: "/assets/background%20remover.png",
-    intro: "BGWrap is an AI-powered tool designed to instantly remove backgrounds from any image. It streamlines the creative process for designers and photographers by automating one of the most tedious tasks in image editing.",
-    problem: "Removing backgrounds manually is time-consuming and requires specialized software and skills. Designers often need quick results for mockups, social media, and product listings.",
-    objectives: [
-      "Develop a high-accuracy AI background removal engine.",
-      "Design a simple, 'one-click' user interface.",
-      "Provide seamless integration with tools like Figma and Photoshop."
-    ],
-    approach: "We used deep learning models to improve edge detection, especially for complex subjects like hair and fur. The UI was built for speed and ease of use.",
-    challenges: [
-      { label: "Challenge: Segmenting hair and fine details. Solution: Implementing advanced refine-edge algorithms and high-resolution mask outputs." }
-    ],
-    result: "Achieved 99.9% accuracy on standard subjects and significantly reduced processing time to under 1 second per image.",
-    conclusion: "BGWrap has become a go-to tool for thousands of creatives, proving the value of purpose-built AI in the design workflow.",
-    tags: ["AI", "Image Processing", "Productivity"],
-    type: "plugin",
-    liveUrl: "https://bgwrap.vercel.app/",
-    liveButtonText: "Try BGWrap"
-  },
-  "dpicon": {
-    title: "Dpicon - AI Image Generation",
-    category: "Dpicon",
-    mainImage: "/assets/dpicon.png",
-    intro: "Dpicon is a generative AI platform specifically optimized for creating high-quality, scalable icons and avatars for digital products.",
-    problem: "Standard generative AI tools are too broad and often produce noisy or inconsistent icons. Designers need clean, uniform assets that match their project's style.",
-    objectives: [
-      "Create a model fine-tuned for vector-like icon generation.",
-      "Implement style-consistency controls for sets of icons.",
-      "Support SVG exports for production use."
-    ],
-    approach: "We trained a custom LoRA on top of Stable Diffusion specifically with clean, modern icon datasets. The UI allows for prompt-based editing and style selection.",
-    challenges: [
-      { label: "Challenge: Generating clean SVG paths. Solution: Building a post-processing pipeline that vectorizes bitmap generations while maintaining precision." }
-    ],
-    result: "Successfully launched with over 1M assets generated in the first month by a community of 20K designers.",
-    conclusion: "Dpicon simplifies asset creation, allowing designers to focus on high-level UX while the AI handles the repetitive iconography.",
-    tags: ["Generative AI", "Icons", "SVG"],
-    type: "plugin",
-    liveUrl: "https://dpicon.framer.website/",
-    liveButtonText: "Live Website"
   },
   "creative-design": {
     title: "Creative Visual Exploration",
@@ -270,72 +165,6 @@ const projectsData: Record<string, any> = {
     type: "graphic",
     isFullGraphicOnly: true
   },
-  "grayscale-converter": {
-    title: "Grayscale Wireframe Converter",
-    category: "Figma Plugin",
-    mainImage: "/assets/gray%20scale%20plugin.jpg",
-    intro: "A utility plugin for Figma that simplifies the transition from high-fidelity designs to wireframes for structural feedback sessions.",
-    problem: "Stakeholders often get distracted by color during layout reviews. Converting designs manually is a waste of time.",
-    objectives: [
-      "Automate image desaturation.",
-      "Map all fills to a standard gray ramp.",
-      "Ensure one-click operation."
-    ],
-    approach: "Building a recursive crawler that visits every node and maps its properties to a grayscale equivalent.",
-    challenges: [
-      { label: "Challenge: Handling components and instances. Solution: Implementing a safe-overwrite mode that respects library connections." }
-    ],
-    result: "Over 5,000 installs in the first week on the Figma Community.",
-    conclusion: "Tools that save time are tools that designers love.",
-    tags: ["Figma Plugin", "Automation", "Workflow"],
-    type: "plugin",
-    liveUrl: "https://www.figma.com/community/plugin/1498582630091227441",
-    liveButtonText: "Open in Figma Community"
-  },
-  "dpicon-svg": {
-    title: "Dpicon - SVG Export Utility",
-    category: "Figma Plugin",
-    mainImage: "/assets/Dpicon%20plugin.jpg",
-    intro: "A specialized export tool that optimizes SVG paths for cleaner code and smaller file sizes, specifically for iconography sets.",
-    problem: "Figma's default SVG export can sometimes include unnecessary data or messy paths.",
-    objectives: [
-      "Implement path simplification algorithms.",
-      "Strip unneeded metadata.",
-      "Provide batch export presets."
-    ],
-    approach: "Integrating SVGO-inspired logic directly into a Figma plugin environment.",
-    challenges: [
-      { label: "Challenge: Maintaining visual precision while simplifying paths. Solution: Implementing an adjustable threshold for path 'merging'." }
-    ],
-    result: "Reduced asset weight for partner companies by an average of 35%.",
-    conclusion: "Clean code is just as important as clean design.",
-    tags: ["Figma Plugin", "SVG", "Optimization"],
-    type: "plugin",
-    liveUrl: "https://www.figma.com/community/plugin/1488603996276952817",
-    liveButtonText: "Open in Figma Community"
-  },
-  "bgwrap-plugin": {
-    title: "BGWRAP - Figma Integration",
-    category: "Figma Plugin",
-    mainImage: "/assets/BGWRAP%20plugin.jpg",
-    intro: "Bringing the power of the BGWRAP background removal engine directly into the Figma canvas for a faster design workflow.",
-    problem: "Switching between browser and design tool breaks creative flow.",
-    objectives: [
-      "Seamless API integration with BGWRAP engine.",
-      "Transparent mask output support.",
-      "Non-destructive original preservation."
-    ],
-    approach: "Developing a secure bridge between Figma's sandbox and our AI processing server.",
-    challenges: [
-      { label: "Challenge: Handling large image uploads within Figma limits. Solution: Implementing local downscaling for preview and high-quality processing for final output." }
-    ],
-    result: "A top-rated utility in the Figma ecosystem for portrait and product designers.",
-    conclusion: "Workflow integration is the key to AI adoption in design.",
-    tags: ["Figma Plugin", "AI", "Image Processing"],
-    type: "plugin",
-    liveUrl: "https://www.figma.com/community/plugin/1500147712889678037",
-    liveButtonText: "Open in Figma Community"
-  }
 };
 
 // ─── Components ─────────────────────────────────────────────────────────────
@@ -347,6 +176,8 @@ export default function ProjectDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (slug && TOOLS[slug]) return <Navigate to={`/tool/${slug}`} replace />;
 
   if (!project) {
     return (
@@ -408,7 +239,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
