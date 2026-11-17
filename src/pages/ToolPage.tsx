@@ -7,8 +7,7 @@ import SequelboxMock from "../components/SequelboxMock";
 
 function Heading({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-4 mb-6">
-      <div className="h-[2px] w-10 bg-[#007AFF]" />
+    <div className="mb-6">
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1A1A1A]">{children}</h2>
     </div>
   );
@@ -42,8 +41,8 @@ export default function ToolPage() {
             <p className="mt-4 text-lg text-[#555] leading-relaxed">{tool.tagline}</p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a href={tool.cta.href} target="_blank" rel="noopener noreferrer" className={`${btn} bg-[#1A1A1A] text-white hover:bg-black`}>
-                {tool.cta.label} <ArrowUpRight size={15} />
+              <a href={tool.cta.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg border-[1.5px] border-[#1A1A1A] px-8 py-3 text-xs font-medium tracking-wide text-[#1A1A1A] transition-colors hover:bg-[#1A1A1A] hover:text-white">
+                {tool.kind === "Figma plugin" ? "INSTALL" : tool.cta.label}
               </a>
               {tool.secondary &&
                 (tool.secondary.internal ? (

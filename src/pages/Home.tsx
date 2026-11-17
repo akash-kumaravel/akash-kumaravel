@@ -9,6 +9,7 @@ import { motion } from "motion/react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { assetPath } from "../data/portfolioData";
+import { TOOLS } from "../data/tools";
 
 const MotionLink = motion.create(Link);
 
@@ -114,20 +115,6 @@ const products = [
     alt: "Sequelbox video editor",
     slug: "sequelbox",
   },
-  {
-    image: assetPath("background remover.png"),
-    category: "Background Remover",
-    title: "BGWrap-Background Remover",
-    alt: "BGWrap background remover",
-    slug: "bg-wrap",
-  },
-  {
-    image: assetPath("dpicon.png"),
-    category: "Image Generation",
-    title: "Dpicon - AI image generation",
-    alt: "Dpicon",
-    slug: "dpicon",
-  },
 ];
 
 function SectionHeader({ title }: { title: string }) {
@@ -145,7 +132,7 @@ function MyProductsSection() {
   return (
     <section id="projects" className="border-b border-black/10 px-8 py-20">
       <div className="max-w-[1400px] mx-auto">
-        <SectionHeader title="Products & Websites" />
+        <SectionHeader title="Products" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
           {products.map((p, idx) => (
             <motion.div 
@@ -249,55 +236,110 @@ function AppsSection() {
 
 // ─── Figma Plugins Section ───────────────────────────────────────────────────
 
-const plugins = [
-  {
-    image: assetPath("t-bgwrap-plugin.webp"),
-    title: "BGWRAP - Background remover",
-    alt: "bgwrap",
-    slug: "bgwrap-plugin",
-  },
-  {
-    image: assetPath("t-grayscale-plugin.webp"),
-    title: "Grayscale wireframe Converter",
-    alt: "Grayscale wireframe Converter",
-    slug: "grayscale-converter",
-  },
-  {
-    image: assetPath("t-dpicon-plugin.webp"),
-    title: "Dpicon - SVG Icons",
-    alt: "Dpicon SVG icons plugin",
-    slug: "dpicon-svg",
-  },
+// Every card links to its own page (/tool/<slug>); INSTALL opens the plugin's Figma page.
+// Edit titles/descriptions/links in src/data/tools.ts.
+const pluginSlugs: { slug: string; square?: boolean }[] = [
+  { slug: "bgwrap-plugin", square: true },
+  { slug: "grayscale-converter", square: true },
+  { slug: "dpicon-svg", square: true },
+  { slug: "site-wrap" },
+  { slug: "motion-box" },
+  { slug: "icon-wrap" },
+  { slug: "print-wrap" },
+  { slug: "perspective-wrap" },
+  { slug: "vector-wrap" },
 ];
 
-function FigmaPluginsSection() {
+const plugins = pluginSlugs.map(({ slug, square }) => {
+  const tool = TOOLS[slug];
+  return {
+    slug,
+    square: !!square,
+    image: tool.image ?? "",
+    title: tool.title,
+    description: tool.tagline,
+    href: tool.cta.href,
+  };
+});
+
+function FigmaMark() {
   return (
-    <section className="border-b border-black/10 px-8 py-20">
+    <svg viewBox="0 0 38 57" className="w-[55%] h-[55%]" aria-hidden="true">
+      <path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+      <path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+      <path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19z" />
+      <path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+      <path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+    </svg>
+  );
+}
+
+function FigmaPluginsSection() {
+  const btnClass =
+    "block w-full text-center rounded-lg border-[1.5px] border-[#1A1A1A] py-2.5 text-xs font-medium tracking-wide text-[#1A1A1A] transition-colors hover:bg-[#1A1A1A] hover:text-white";
+
+  return (
+    <section className="border-b border-black/10 px-6 sm:px-8 py-20">
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader title="Figma Plugins" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {plugins.map((p, idx) => {
+            const art = (
+              <img
+                src={p.image}
+                alt={p.title}
+                className={`w-full rounded-[20px] object-cover ring-1 ring-black/5 ${
+                  p.square ? "aspect-square" : "aspect-[1.3/1] object-[center_22%]"
+                }`}
+              />
+            );
             return (
-              <MotionLink 
-                to={`/tool/${p.slug}`}
-                key={idx}
+              <motion.article
+                key={p.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: (idx % 3) * 0.1 }}
                 viewport={{ once: true }}
-                className="group cursor-pointer block"
+                className="flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white text-[#1A1A1A] shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)]"
               >
-                <div className="rounded-2xl aspect-square overflow-hidden mb-4 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                  <img
-                    src={p.image}
-                    alt={p.alt}
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
+                <div className="flex items-center gap-3 border-b border-black/10 px-3.5 py-2.5 text-[13px]">
+                  <div className="grid h-6 w-6 place-items-center rounded-[7px] border border-black/10 bg-[#F4F4F5]">
+                    <FigmaMark />
+                  </div>
+                  <span className="text-[#444]">Figma plugin</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#1A1A1A"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    className="ml-auto h-3.5 w-3.5 opacity-50"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 3l18 18M21 3L3 21" />
+                  </svg>
                 </div>
-                <h3 className="text-[#1A1A1A] text-lg sm:text-xl font-semibold leading-tight px-1 group-hover:text-[#007AFF] transition-colors">
-                  {p.title}
-                </h3>
-              </MotionLink>
+
+                <div className="mx-3.5 mt-3">
+                  <Link to={`/tool/${p.slug}`} className="block">{art}</Link>
+                </div>
+
+                <div className="relative top-px mx-3.5 mt-3 w-max border-b-2 border-[#1A1A1A] pb-1.5 text-[13px] font-medium">
+                  Details
+                </div>
+
+                <div className="mt-auto flex flex-col gap-2.5 border-t border-black/10 px-3.5 pb-3.5 pt-2.5">
+                  <Link
+                    to={`/tool/${p.slug}`}
+                    className="m-0 line-clamp-2 min-h-[2.6em] text-xs leading-[1.3] text-[#555] hover:text-[#1A1A1A]"
+                  >
+                    {p.description}
+                  </Link>
+                  <a href={p.href} target="_blank" rel="noopener noreferrer" className={btnClass}>
+                    INSTALL
+                  </a>
+                </div>
+              </motion.article>
             );
           })}
         </div>
